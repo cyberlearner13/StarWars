@@ -1,57 +1,63 @@
-import React,{Component} from 'react';
-import { Card, Col, Row } from 'antd';
-import { Link } from 'react-router-dom';
-import GetData from "./GetData";
+import React, { Component } from "react";
+import { Card, Col, Row, Button } from "antd";
+import { Link } from "react-router-dom";
+import { OpeningCrawlFirstRow, OpeningCrawlSecondRow } from "../utils/utils";
 
-export default class CharacterCards extends Component{
-  render(){
-    return(
-      <div style={{ background: '#f7f7f7', padding: '10px', marginTop: '25px' }}>
-        <Row gutter={16}>
-          <Col span={8}>
-            <Card title="Films">A Brief History of the Skywalker Saga, along with iconic dialogues to boot
-                <Link to="/films"><GetData /></Link>
-            </Card>
-          </Col>
-          <Col span={8}>
-            <Card title="People" bordered={true}>Jedi or Sith? Imperial Troop or Rebel Scum? Filthy Pirate or A Bounty Hunter? Find out
-                <GetData />
-            </Card>
-          </Col>
-          <Col span={8}>
-            <Card title="Planets" bordered={true}>How would a planet with two Suns feel? Or a planet that is a city? What new worlds await discovery? Strap on!!
-              <GetData />
-            </Card>
-          </Col>
+export default class CharacterCards extends Component {
+  renderLink = () => {
+    return (
+      <div className="App-button">
+        <Button type="primary">Let's Go!</Button>
+      </div>
+    );
+  };
+  renderFirstRow = () => {
+    return OpeningCrawlFirstRow.map(val => {
+      return (
+        <Col key={val.title} span={8}>
+          <Card title={val.title}>
+            {val.text}
+            <Link to={val.path} className="App-button">
+              {this.renderLink()}
+            </Link>
+          </Card>
+        </Col>
+      );
+    });
+  };
+  renderSecondRow = () => {
+    return OpeningCrawlSecondRow.map(val => {
+      return (
+        <Col key={val.title} span={8}>
+          <Card title={val.title}>
+            {val.text}
+            <Link to={val.path} className="App-button">
+              {this.renderLink()}
+            </Link>
+          </Card>
+        </Col>
+      );
+    });
+  };
+  render() {
+    console.log(OpeningCrawlFirstRow);
+    console.log(OpeningCrawlSecondRow);
+    return (
+      <div>
+        <Row gutter={16} className="happy-landing">
+          {this.renderFirstRow()}
         </Row>
-        <Row gutter={16} style={{ background: '#f7f7f7', marginTop: '25px' }}>
-          <Col span={8}>
-            <Card title="Species">Interested in exotic alien 'Races' ? Want to 'taste' the galaxy ? Chat up a Wookie ? or gyrate with a sensous twillek ? Well Lets hit hyperspeed!!
-              <GetData />
-            </Card>
-          </Col>
-          <Col span={8}>
-            <Card title="Starships" bordered={true}>An X-Wing or an Imperial Cruiser, or Perhaps a Star Destroyer of the Imperial Navy. You Choose!
-              <GetData />
-            </Card>
-          </Col>
-          <Col span={8}>
-            <Card title="Vehicles" bordered={true}>Imperial Walkers or Giant Lizards, or weird beasts in a bling blizzard?We won't judge
-              <GetData />
-            </Card>
-          </Col>
+        <Row gutter={16} className="happy-landing">
+          {this.renderSecondRow()}
         </Row>
       </div>
     );
   }
 }
-
-
 /*I just learnt the hard way that without credit card you can have no girl friends or great sex
 I am so angry that I am not angry
 Or I guess I am not ready yet....Damn...I am cursed...but to evoke fantassises and desires from women is an art
 I was correct!! I was correct!! Evolutionary feature need to learn need to learn at all costs....but no credit card no secret knowledge*/
-
 /*
 Shock her in a good way!!
 Something pleasurable
