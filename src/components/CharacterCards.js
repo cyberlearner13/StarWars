@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 import { Card, Col, Row, Button } from "antd";
 import { Link } from "react-router-dom";
 import { OpeningCrawlFirstRow, OpeningCrawlSecondRow } from "../utils/utils";
 
-export default class CharacterCards extends Component {
+class CharacterCards extends Component {
   renderLink = () => {
     return (
       <div className="App-button">
@@ -40,8 +41,6 @@ export default class CharacterCards extends Component {
     });
   };
   render() {
-    console.log(OpeningCrawlFirstRow);
-    console.log(OpeningCrawlSecondRow);
     return (
       <div>
         <Row gutter={16} className="happy-landing">
@@ -54,14 +53,5 @@ export default class CharacterCards extends Component {
     );
   }
 }
-/*I just learnt the hard way that without credit card you can have no girl friends or great sex
-I am so angry that I am not angry
-Or I guess I am not ready yet....Damn...I am cursed...but to evoke fantassises and desires from women is an art
-I was correct!! I was correct!! Evolutionary feature need to learn need to learn at all costs....but no credit card no secret knowledge*/
-/*
-Shock her in a good way!!
-Something pleasurable
-Pull Back
-Create a vivid image(you+icr cream #2)
-Getting her to meet up(false choice)
-*/
+
+export default CharacterCards;
