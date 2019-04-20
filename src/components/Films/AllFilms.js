@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Row, Col, Button,Spin } from "antd";
 import { connect } from "react-redux";
-import { fetchMovie } from "../../actions/fetchFilms";
+import { fetchMovie } from "../../actions/fetchFilms"; 
 import Film from "./Film";
 import './films.css';
 
@@ -40,7 +40,7 @@ class AllFilms extends Component {
             </Row>
           </Col>
         </Row>
-        {this.props.film.fetching ? <Spin size="large" /> : <Film stats = {this.props.film.data} /> }
+        {this.props.film.fetching ? <Spin size="large" className="movie"/> : <Film stats = {this.props.film.data} /> }
       </div>
     );
   }

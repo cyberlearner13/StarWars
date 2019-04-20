@@ -1,7 +1,28 @@
+ul li{
+	list-style-type: none;
+	font-size:1.2em;
+	line-height: 30px;
+}
 .margin-button{
    margin: 5px;
 }
 
 .margin-row{
   margin: 15px;
+}
+
+.movie-name{
+	font-size:2em;
+	text-transform:uppercase;
+	margin-bottom: 20px;
+}
+
+.movie-details{
+	font-size:1.5em;
+	margin-top: 20px;
+}
+
+.movie{
+	margin-top:2.5%;
+	font-size:20px;
 }
