@@ -8,6 +8,8 @@ import CharacterCards from "./CharacterCards";
 import AllFilms from "./Films/AllFilms";
 import Film from "./Films/Film";
 import FilmSchema from "./Films/FilmSchema";
+import Characters from "./People/Characters";
+
 
 class App extends Component {
   render() {
@@ -23,7 +25,7 @@ class App extends Component {
             <Route path="/films/:id" component={Film} />
           </Switch>
           <Switch>
-            <Route path="/people" component={CharacterCards} />
+            <Route path="/people" component={Characters} />
             <Route path="/people/:id" component={CharacterCards} />
             <Route path="/people/schema" component={CharacterCards} />
           </Switch>

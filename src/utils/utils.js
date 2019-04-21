@@ -8,31 +8,33 @@ const OpeningCrawlFirstRow = [
   {
     title: "People",
     path: "/people",
-    text: `A whole new galaxies, a whole list of people`
+    text: `See your favourite characters from the movies and step into their shoes in a galaxy not so far away`
   },
   {
     title: "Planets",
-    path: "/films",
+    path: "/planets",
     text: `Planets, star systems and moons with exotic creatures`
   }
 ];
 const OpeningCrawlSecondRow = [
   {
     title: "Species",
-    path: "/films",
+    path: "/species",
     text: `Wanted to cozy up with a twirling Twi'lek, or share a groan with a Wookie?
             Here's your chance`
   },
   {
     title: "Starships",
-    path: "/films",
+    path: "/starships",
     text: `Nothing is complete in Star Wars without mad space dog fights`
   },
   {
     title: "Vehicles",
-    path: "/films",
+    path: "/vehicles",
     text: `From mechanised walkers to strange beasts...we got your back!`
   }
 ];
 
-export { OpeningCrawlFirstRow, OpeningCrawlSecondRow };
+const movies = ['Episode I','Episode II','Episode III','Episode IV','Episode V','Episode VI','Episode VII','Episode VIII','Episode IX']
+
+export { OpeningCrawlFirstRow, OpeningCrawlSecondRow,movies };

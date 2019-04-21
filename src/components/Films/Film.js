@@ -11,16 +11,16 @@ class Film extends Component {
       const { characters } = this.props.stats;
       characters.forEach( val => {
          this.props.fetchPeopleFromList(val);
-      }) 
+      })
     }
-    
+
   }
-    
+
   render(){
 
       const renderFirst = characters => {
         return characters.map((val,ind)=>{
-          return  <li key={ind}>{val}</li> 
+          return  <li key={ind}>{val}</li>
         })
       }
       const renderSecond = characters => {
@@ -48,7 +48,7 @@ class Film extends Component {
         const renderSecondCol = renderSecond(secondColumn)
         const renderThirdCol = renderThird(thirdColumn)
 
-        
+
       return (
         <div style={{'marginTop':'2.5%'}}>
           <Row>
@@ -63,7 +63,7 @@ class Film extends Component {
              <Col span={24} className="movie-details"><strong>Movie Details and Characters</strong></Col>
           </Row>
            <Row gutter={8} style={{"marginTop":"20px"}}>
-             <Col span={2}></Col>
+             <Col span={4}></Col>
              <Col span={4}>
              <Card title="Movie Facts">
                <p>Director: {director}</p>
@@ -71,17 +71,20 @@ class Film extends Component {
                <p>Release Date: {release_date}</p>
              </Card>
              </Col>
-            
+
             { this.props.people.fetching ? <Col span={3}><Spin size="large" style={{"margin":"20px"}} /></Col> : <Col span={3} style={{"margin":"20px"}}><ul>{renderFirstCol}</ul></Col> }
             { this.props.people.fetching ? <Col span={3}><Spin size="large" style={{"margin":"20px"}} /></Col> : <Col span={3} style={{"margin":"20px"}}><ul>{renderSecondCol}</ul></Col> }
             { this.props.people.fetching ? <Col span={3}><Spin size="large" style={{"margin":"20px"}} /></Col> : <Col span={3} style={{"margin":"20px"}}><ul>{renderThirdCol}</ul></Col> }
-           
-            
+
+
            </Row>
            <Row>
            </Row>
         </div>
       )
+    }
+    else if(this.props.message.length){
+      return <div className="movie">{this.props.message}</div>
     }
     else{
       return <div className="movie">The Galaxy is far,far away...</div>

@@ -11,3 +11,5 @@ export const fetchMovie = id => async dispatch => {
     payload:res.data
   })
 }
+
+export const resetMovie = () => dispatch => dispatch({ type: types.FETCH_MOVIE_RESET})
