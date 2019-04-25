@@ -7,9 +7,11 @@ import "./App.css";
 import CharacterCards from "./CharacterCards";
 import AllFilms from "./Films/AllFilms";
 import Film from "./Films/Film";
-import FilmSchema from "./Films/FilmSchema";
 import Characters from "./People/Characters";
-
+import Planets from "./Planets/Planets";
+import Species from "./Species/Species";
+import Starships from "./Starships/Starships";
+import Vehicles from "./Vehicles/Vehicles";
 
 class App extends Component {
   render() {
@@ -21,38 +23,27 @@ class App extends Component {
           <Route path="/" exact component={CharacterCards} />
           <Switch>
             <Route path="/films" exact component={AllFilms} />
-            <Route path="/films/schema" component={FilmSchema} />
             <Route path="/films/:id" component={Film} />
           </Switch>
           <Switch>
             <Route path="/people" component={Characters} />
             <Route path="/people/:id" component={CharacterCards} />
-            <Route path="/people/schema" component={CharacterCards} />
           </Switch>
           <Switch>
-            <Route path="/planets" component={CharacterCards} />
+            <Route path="/planets" component={Planets} />
             <Route path="/planets/:id" component={CharacterCards} />
-            <Route path="/planets/schema" component={CharacterCards} />
           </Switch>
           <Switch>
-            <Route path="/species" component={CharacterCards} />
+            <Route path="/species" component={Species} />
             <Route path="/species/:id" component={CharacterCards} />
-            <Route path="/species/schema" component={CharacterCards} />
           </Switch>
           <Switch>
-            <Route path="/starships" component={CharacterCards} />
+            <Route path="/starships" component={Starships} />
             <Route path="/starships/:id" component={CharacterCards} />
-            <Route path="/starships/schema" component={CharacterCards} />
           </Switch>
           <Switch>
-            <Route path="/starships" component={CharacterCards} />
-            <Route path="/starships/:id" component={CharacterCards} />
-            <Route path="/starships/schema" component={CharacterCards} />
-          </Switch>
-          <Switch>
-            <Router path="/vehicles" component={CharacterCards} />
+            <Router path="/vehicles" component={Vehicles} />
             <Router path="/vehicles/:id" component={CharacterCards} />
-            <Router path="/vehicles/schema" component={CharacterCards} />
           </Switch>
           </div>
         </Router>

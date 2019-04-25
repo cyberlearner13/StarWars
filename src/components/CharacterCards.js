@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from 'react-redux';
 import { Card, Col, Row, Button } from "antd";
 import { Link } from "react-router-dom";
 import { OpeningCrawlFirstRow, OpeningCrawlSecondRow } from "../utils/utils";
