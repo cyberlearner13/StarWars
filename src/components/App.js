@@ -6,8 +6,8 @@ import "./App.css";
 
 import CharacterCards from "./CharacterCards";
 import AllFilms from "./Films/AllFilms";
-import Film from "./Films/Film";
 import Characters from "./People/Characters";
+import Character from "./People/Character";
 import Planets from "./Planets/Planets";
 import Species from "./Species/Species";
 import Starships from "./Starships/Starships";
@@ -23,11 +23,11 @@ class App extends Component {
           <Route path="/" exact component={CharacterCards} />
           <Switch>
             <Route path="/films" exact component={AllFilms} />
-            <Route path="/films/:id" component={Film} />
+
           </Switch>
           <Switch>
+            <Route path="/people/:name" component={Character} />
             <Route path="/people" component={Characters} />
-            <Route path="/people/:id" component={CharacterCards} />
           </Switch>
           <Switch>
             <Route path="/planets" component={Planets} />
