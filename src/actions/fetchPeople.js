@@ -24,3 +24,14 @@ export const fetchPeoples = () => async dispatch => {
     payload:res.data
   })
 }
+
+export const fetchPeoplesWithURL = url => async dispatch => {
+  dispatch({
+    type:types.FETCH_PEOPLES
+  })
+  const res = await axios.get(url)
+  dispatch({
+    type:types.FETCH_PEOPLES_SUCCESS,
+    payload:res.data
+  })
+}
