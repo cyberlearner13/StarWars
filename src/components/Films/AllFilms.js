@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { fetchMovie, resetMovie } from "../../actions/fetchFilms";
 import Film from "./Film";
 import { movies } from "../../utils/utils";
+import BackButton from "../common/BackButton";
 import "./films.css";
 
 class AllFilms extends Component {
@@ -145,13 +146,7 @@ class AllFilms extends Component {
         ) : (
           <Film stats={this.props.film.data} message={this.state.message} />
         )}
-        <Row>
-          <Col span={24} style={{ marginTop: "20px" }}>
-            <Link to="/">
-              <Button type="primary">Back To Coruscant</Button>
-            </Link>
-          </Col>
-        </Row>
+        <BackButton colStyle />
       </div>
     );
   }

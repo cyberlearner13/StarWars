@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchMovieWithURL } from '../../actions/fetchFilms';
+import BackButton from '../common/BackButton';
 
 class Character extends Component {
   componentDidMount(){
@@ -9,10 +10,12 @@ class Character extends Component {
 
   render(){
     const { name } = this.props.location.state;
-    console.log(this.props.location.state);
-    console.log('film: ',this.props.film)
+
     return (
-      <div>{name}</div>
+      <div>
+        <p>{name}</p>
+        <BackButton />
+      </div>
     )
   }
 }

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Spin, Table, Button, Row, Col } from "antd";
 import { fetchPeoples, fetchPeoplesWithURL } from "../../actions/fetchPeople";
+import BackButton from '../common/BackButton';
 
 class Characters extends Component {
   state = {
@@ -57,7 +58,6 @@ class Characters extends Component {
         }
         else {
           if(currentClicked - current > 1  ){
-            console.log('helo: ',currentClicked)
             let newUrl = `${nextClicked.split("=")[0]}=${currentClicked}`;
             this.props.fetchPeoplesWithURL(newUrl);
           }
@@ -78,8 +78,7 @@ class Characters extends Component {
       {
         title: "Name",
         dataIndex: "name",
-        key: "name",
-        sorter: (a, b) => a.name.length - b.name.length
+        key: "name"
       },
       {
         title: "Year of Birth",
@@ -89,25 +88,17 @@ class Characters extends Component {
       {
         title: "Gender",
         dataIndex: "gender",
-        filters: [
-          { text: "Male", value: "male" },
-          { text: "Female", value: "female" },
-          { text: "Other", value: "n/a" }
-        ],
-        onFilter: (value, record) => record.gender.indexOf(value) === 0,
         key: "gender"
       },
       {
         title: "Height",
         dataIndex: "height",
-        key: "height",
-        sorter: (a, b) => a.height - b.height
+        key: "height"
       },
       {
         title: "Weight",
         dataIndex: "mass",
-        key: "mass",
-        sorter: (a, b) => a.mass - b.mass
+        key: "mass"
       },
       {
         title: "Color of Eye",
@@ -158,13 +149,7 @@ class Characters extends Component {
               </Col>
               <Col span={2} />
             </Row>
-            <Row style={{ marginBottom: "20px" }}>
-              <Col span={24}>
-                <Link to="/">
-                  <Button type="primary">Back To Coruscant</Button>
-                </Link>
-              </Col>
-            </Row>
+            <BackButton />
           </div>
         )}
       </div>
