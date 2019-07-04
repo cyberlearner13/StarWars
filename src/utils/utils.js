@@ -13,7 +13,7 @@ const OpeningCrawlFirstRow = [
   {
     title: "Planets",
     path: "/planets",
-    text: `Planets, star systems and moons with exotic creatures`
+    text: `Planets, star systems and moons with exotic creatures.Life never presents a dull moment`
   }
 ];
 const OpeningCrawlSecondRow = [
@@ -26,12 +26,12 @@ const OpeningCrawlSecondRow = [
   {
     title: "Starships",
     path: "/starships",
-    text: `Nothing is complete in Star Wars without mad space dog fights`
+    text: `Nothing is complete in Star Wars without mad space dog fights, which are far better than any pod racing`
   },
   {
     title: "Vehicles",
     path: "/vehicles",
-    text: `From mechanised walkers to strange beasts...we got your back!`
+    text: `From mechanised walkers to strange beasts...we got your back, and the wierdest form of backup there is!`
   }
 ];
 

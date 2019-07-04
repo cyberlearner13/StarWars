@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Row, Col, Button, Spin } from "antd";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+
 import { fetchMovie, resetMovie } from "../../actions/fetchFilms";
 import Film from "./Film";
 import { movies } from "../../utils/utils";
