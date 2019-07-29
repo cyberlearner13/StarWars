@@ -162,6 +162,4 @@ const mapStateToProps = state => {
     characters: state.people
   };
 };
-export default connect(mapStateToProps, { fetchPeoples, fetchPeoplesWithURL })(
-  Characters
-);
+export default connect(mapStateToProps, { fetchPeoples, fetchPeoplesWithURL })(Characters);

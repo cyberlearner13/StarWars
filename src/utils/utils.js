@@ -1,4 +1,4 @@
-const OpeningCrawlFirstRow = [
+const OpeningCrawl = [
   {
     title: "Films",
     path: "/films",
@@ -14,9 +14,7 @@ const OpeningCrawlFirstRow = [
     title: "Planets",
     path: "/planets",
     text: `Planets, star systems and moons with exotic creatures.Life never presents a dull moment`
-  }
-];
-const OpeningCrawlSecondRow = [
+  },
   {
     title: "Species",
     path: "/species",
@@ -26,15 +24,19 @@ const OpeningCrawlSecondRow = [
   {
     title: "Starships",
     path: "/starships",
-    text: `Nothing is complete in Star Wars without mad space dog fights, which are far better than any pod racing`
+    text: `Nothing is complete in Star Wars without mad space dog fights, which are far better than any pod racing death match`
   },
   {
     title: "Vehicles",
     path: "/vehicles",
-    text: `From mechanised walkers to strange beasts...we got your back, and the wierdest form of backup there is!`
+    text: `From mechanised walkers to strange beasts...we got your back, and the weirdest form of backup there is!`
   }
 ];
 
-const movies = ['Episode I','Episode II','Episode III','Episode IV','Episode V','Episode VI','Episode VII','Episode VIII','Episode IX']
+const movies = ['Episode IV','Episode V','Episode VI','Episode I','Episode II','Episode III','Episode VII','Episode VIII','Episode IX'];
 
-export { OpeningCrawlFirstRow, OpeningCrawlSecondRow,movies };
+const ot = movies.slice(0,3);
+const pt = movies.slice(3,6);
+const st = movies.slice(6,9);
+
+export { OpeningCrawl, movies, ot, pt, st };

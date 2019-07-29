@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Card, Col, Row, Button } from "antd";
 import { Link } from "react-router-dom";
-import { OpeningCrawlFirstRow, OpeningCrawlSecondRow } from "../utils/utils";
+import { OpeningCrawl } from "../utils/utils";
 
 class CharacterCards extends Component {
   renderLink = () => {
@@ -11,44 +11,39 @@ class CharacterCards extends Component {
       </div>
     );
   };
-  renderFirstRow = () => {
-    return OpeningCrawlFirstRow.map(val => {
-      return (
-        <Col key={val.title} span={8}>
-          <Card title={val.title}>
-            {val.text}
-            <Link to={val.path} className="App-button">
-              {this.renderLink()}
-            </Link>
-          </Card>
-        </Col>
-      );
+  renderRow = () => {
+    return OpeningCrawl.map((val, ind) => {
+      if (ind < 2) {
+        return (
+          <Col key={val.title} span={8}>
+            <Card title={val.title}>
+              {val.text}
+              <Link to={val.path} className="App-button">
+                {this.renderLink()}
+              </Link>
+            </Card>
+          </Col>
+        );
+      } else {
+        return (
+          <Col key={val.title} span={8} style={{ marginTop: "10px" }}>
+            <Card title={val.title}>
+              {val.text}
+              <Link to={val.path} className="App-button">
+                {this.renderLink()}
+              </Link>
+            </Card>
+          </Col>
+        );
+      }
     });
   };
-  renderSecondRow = () => {
-    return OpeningCrawlSecondRow.map(val => {
-      return (
-        <Col key={val.title} span={8}>
-          <Card title={val.title}>
-            {val.text}
-            <Link to={val.path} className="App-button">
-              {this.renderLink()}
-            </Link>
-          </Card>
-        </Col>
-      );
-    });
-  };
+
   render() {
     return (
-      <div>
-        <Row gutter={16} className="happy-landing">
-          {this.renderFirstRow()}
-        </Row>
-        <Row gutter={16} className="happy-landing">
-          {this.renderSecondRow()}
-        </Row>
-      </div>
+      <Row gutter={16} className="happy-landing">
+        {this.renderRow()}
+      </Row>
     );
   }
 }
