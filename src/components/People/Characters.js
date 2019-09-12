@@ -73,7 +73,7 @@ class Characters extends Component {
     const tableData = this.props.characters.data.length
       ? this.props.characters.data[0].results
       : [];
-
+      console.log('table: ',tableData)
     const columns = [
       {
         title: "Name",
@@ -125,7 +125,7 @@ class Characters extends Component {
               state: record
             }}
           >
-            <Button type="primary">Detials</Button>
+            <Button type="primary">Details</Button>
           </Link>
         )
       }

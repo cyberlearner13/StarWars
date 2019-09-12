@@ -12,7 +12,7 @@ class Planets extends Component{
   }
 
   render(){
-    const planetData = this.props.planets.data.length ? this.props.planets.data[0].results : []
+    const planetData = this.props.planets.data.length ? this.props.planets.data[0].results : [];
 
     const columns = [
       {
@@ -23,7 +23,7 @@ class Planets extends Component{
       {
         title: "Climate",
         dataIndex: "climate",
-        key: "name"
+        key: "Climate"
       },
       {
         title: "Diameter",
@@ -61,18 +61,19 @@ class Planets extends Component{
         key: "terrain"
       },
       {
-        title: "Character Details",
+        title: "Planet Details",
         key: "Details",
         render: (text, record) => (
-          <Link
-            to={{
-              pathname: `/planets/${record.name.trim()}`,
-              state: record
-            }}
-          >
-            <Button type="primary">Detials</Button>
-          </Link>
-        )
+            <Link
+              to={{
+                pathname: `/planets/${record.name.trim()}`,
+                state: record
+              }}
+            >
+              <Button type="primary">Detials</Button>
+            </Link>
+          )
+
       }
     ];
 
@@ -83,13 +84,15 @@ class Planets extends Component{
         ) : (
           <div>
             <Row>
-              <Col span={24}>
+              <Col span={2} />
+              <Col span={20}>
                 <Table
                   dataSource={planetData}
                   columns={columns}
 
                 />
               </Col>
+                <Col span={2} />
             </Row>
             <BackButton />
           </div>
