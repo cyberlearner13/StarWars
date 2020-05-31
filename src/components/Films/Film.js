@@ -16,38 +16,24 @@ class Film extends Component {
 
   }
 
+  renderColsData = characters => {
+    return characters.map((val,ind)=>{
+      return  <li key={ind}>{val}</li>
+    })
+  }
   render(){
-
-      const renderFirst = characters => {
-        return characters.map((val,ind)=>{
-          return  <li key={ind}>{val}</li>
-        })
-      }
-      const renderSecond = characters => {
-        return characters.map((val,ind)=>{
-          return <li key={ind}>{val}</li>
-        })
-      }
-      const renderThird = characters => {
-        return characters.map((val,ind)=>{
-          return <li key={ind}>{val}</li>
-        })
-      }
 
     if(Object.keys(this.props.stats).length){
 
         const {title,opening_crawl,director,episode_id, release_date} = this.props.stats;
 
-        const { data } = this.props.people;
+        const { data, fetching } = this.props.people;
 
-        const firstColumn = data.slice(0,6);
-        const secondColumn = data.slice(6,12);
-        const thirdColumn = data.slice(12,18);
-
-        const renderFirstCol = renderFirst(firstColumn)
-        const renderSecondCol = renderSecond(secondColumn)
-        const renderThirdCol = renderThird(thirdColumn)
-
+        const renderCols = {
+           renderFirstCol: this.renderColsData(data.slice(0,6)),
+           renderSecondCol: this.renderColsData(data.slice(6,12)),
+           renderThirdCol: this.renderColsData(data.slice(12,18))
+        }
 
       return (
         <div style={{'marginTop':'2.5%'}}>
@@ -72,10 +58,12 @@ class Film extends Component {
              </Card>
              </Col>
 
-            { this.props.people.fetching ? <Col span={3}><Spin size="large" style={{"margin":"20px"}} /></Col> : <Col span={3} style={{"margin":"20px"}}><ul>{renderFirstCol}</ul></Col> }
-            { this.props.people.fetching ? <Col span={3}><Spin size="large" style={{"margin":"20px"}} /></Col> : <Col span={3} style={{"margin":"20px"}}><ul>{renderSecondCol}</ul></Col> }
-            { this.props.people.fetching ? <Col span={3}><Spin size="large" style={{"margin":"20px"}} /></Col> : <Col span={3} style={{"margin":"20px"}}><ul>{renderThirdCol}</ul></Col> }
-
+             {
+               Object.keys(renderCols).map((renderCol, index)=>{
+                  fetching ? <Col span={3} key={index}><Spin size="large" style={{"margin":"20px"}} /></Col>:
+                  <Col span={3} style={{"margin":"20px"}} key={index}><ul>{renderCol}</ul></Col>
+               })
+             }
 
            </Row>
            <Row>

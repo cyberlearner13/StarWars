@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Row, Col, Collapse, PageHeader,Button, Modal   } from "antd";
 import { fetchMovieWithURL } from '../../actions/fetchFilms';
+import { fetchPlanetsWithURL } from '../../actions/fetchPlanets';
 import BackButton from '../common/BackButton';
 import BackToPrevious from '../common/BackToPrevious';
 import ModalFilms from '../common/ModalFilms';
@@ -15,18 +16,21 @@ class Character extends Component {
     movie: ''
   }
 
-  componentDidMount(){
-      this.props.fetchMovieWithURL(this.props.location.state.films[0])
-  }
-
   getFilmNames = film => {
-      //this.props.fetchMovieWithURL(film)
+      this.props.fetchMovieWithURL(film)
       this.setState({
         showMovieModal: true,
         movie: film
       })
   }
 
+  getPlanetNames = planet => {
+    this.props.fetchPlanetsWithURL(planet)
+    this.setState({
+      showMovieModal: true,
+      movie: planet
+    })
+  }
   closeMovieModal = () =>{
     this.setState({
       showMovieModal: false,
@@ -47,13 +51,14 @@ class Character extends Component {
   }
 
   renderPlanets = state => {
-    if(state.planets){
-      if(state.planets.length){
-        return state.planets.map(planet =><p key={planet}>{planet}</p>)
+      if(state.planets && state.planets.length){
+        return [state.planets.map(planet =>
+          <Button type="primary" style={{marginLeft:'10px'}} key={planet}
+                   onClick = {() => this.getPlanetNames(planet)}>Get Planet Details
+          </Button>)]
       }
       return <p>No Data</p>
-    }
-    return <p>NO HOME</p>
+
   }
 
 
@@ -143,4 +148,4 @@ const mapStateToProps = state => {
     film
   };
 };
-export default connect(mapStateToProps,{ fetchMovieWithURL})(Character);
+export default connect(mapStateToProps,{ fetchMovieWithURL, fetchPlanetsWithURL})(Character);

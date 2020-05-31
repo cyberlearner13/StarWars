@@ -13,29 +13,16 @@ class CharacterCards extends Component {
   };
   renderRow = () => {
     return OpeningCrawl.map((val, ind) => {
-      if (ind < 2) {
-        return (
-          <Col key={val.title} span={8}>
-            <Card title={val.title}>
-              {val.text}
-              <Link to={val.path} className="App-button">
-                {this.renderLink()}
-              </Link>
-            </Card>
-          </Col>
-        );
-      } else {
-        return (
-          <Col key={val.title} span={8} style={{ marginTop: "10px" }}>
-            <Card title={val.title}>
-              {val.text}
-              <Link to={val.path} className="App-button">
-                {this.renderLink()}
-              </Link>
-            </Card>
-          </Col>
-        );
-      }
+      return (
+        <Col key={val.title} span={8} style={{ marginTop: "10px" }}>
+          <Card title={val.title}>
+            {val.text}
+            <Link to={val.path} className="App-button">
+              {this.renderLink()}
+            </Link>
+          </Card>
+        </Col>
+      );
     });
   };
 

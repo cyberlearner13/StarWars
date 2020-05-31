@@ -20,3 +20,21 @@ export const fetchPlanets = () => async dispatch => {
   }
 
 }
+
+export const fetchPlanetsWithURL = url => async dispatch => {
+  dispatch({
+    type:types.FETCH_PLANETS
+  })
+  try{
+    const res = await axios.get(url)
+    dispatch({
+      type:types.FETCH_PLANETS_SUCCESS,
+      payload:res.data
+    })
+  }catch (e) {
+    dispatch({
+      type:types.FETCH_PLANETS_FAILURE,
+      payload: e
+    })
+  }
+  }
